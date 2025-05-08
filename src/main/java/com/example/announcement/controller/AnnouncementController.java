@@ -19,7 +19,6 @@ public class AnnouncementController {
         String szseUrl = "https://www.szse.cn/api/disc/announcement/annList?random=0.47085534213338676";
         List<Map<String, Object>> resultList = new ArrayList<>();
         try {
-
             // 请求参数
             Map<String, Object> requestPayload = new HashMap<>();
             requestPayload.put("bigIndustryCode", Arrays.asList("C"));
