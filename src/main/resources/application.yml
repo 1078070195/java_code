@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: service-demo
+  profiles:
+    active: dev
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        # 服务注册地址
+        server-addr: 172.16.70.246:8850
+        namespace: zhouhuanzhang
+      config:
+        # 配置中心地址
+        server-addr: 172.16.70.246:8850
+        # 配置文件格式
+        namespace: zhouhuanzhang
+        #mysql配置
+        extension-configs:
+          - data-id: ext-mysql-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+            group: DEFAULT_GROUP
+            refresh: true
+          - data-id: ext-redis-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+            group: DEFAULT_GROUP
+            refresh: true
